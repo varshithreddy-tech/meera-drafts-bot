@@ -72,6 +72,18 @@ After each draft, the bot sends a second message scoring it 1-10 against the voi
 
 Overall = average of the six, capped at the faithfulness score if that is 5 or below. 8+ = Ready to post, 6-7.9 = Needs light edits, below 6 = Rewrite. Up to 3 suggested fixes are included.
 
+## Automatic deploys
+
+The Vercel project is connected to this GitHub repo. Every push to `main` redeploys the bot to production automatically:
+
+```bash
+git add -A
+git commit -m "describe the change"
+git push
+```
+
+Environment variables live in Vercel, not in the repo. After changing one in the dashboard, redeploy from the Deployments tab (or push any commit).
+
 ## Changing the voice
 
-Edit `voice-skill.txt` and redeploy. The file is read on every request, so every draft uses the current version.
+Edit `voice-skill.txt` and push. The file is read on every request, so every draft uses the current version.
